@@ -6,5 +6,5 @@ Gem::Specification.new do |s|
   s.author = 'liggest'
   s.files = Dir["{lib}/**/*.rb", "bin/*", "LICENSE", "*.md"]
   s.license = 'MIT' 
-  s.post_install_message = '流石RN，的确NB'
+  s.post_install_message = '流石RC，的确NB'
 end
