@@ -1,6 +1,6 @@
 # rcnb.rb
 
-![gem_shield](https://img.shields.io/gem/v/rcnb?color=%23fa0000)
+[![gem_shield](https://img.shields.io/gem/v/rcnb?color=%23fa0000)](https://rubygems.org/gems/rcnb)
 
 A ruby implementation of [RCNB](https://github.com/rcnbapp/RCNB.js)
 
@@ -22,6 +22,5 @@ RCNB.decode('ȐĉņþƦȻƝƃŔć')
 
 ### Reference
 
-[RCNB.js](https://github.com/rcnbapp/RCNB.js)
-
+[RCNB.js](https://github.com/rcnbapp/RCNB.js)   
 [RCNB.py](https://github.com/chr233/RCNB.python)
