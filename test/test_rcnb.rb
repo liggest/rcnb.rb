@@ -1,6 +1,9 @@
 require 'minitest/autorun'
 require 'rcnb'
 
+require 'rcnb/str'
+using RCNB::Str
+
 class RCNBTest < Minitest::Test
   def test_encode
     assert_equal 'ɌcńƁȓČņÞ',RCNB.encode('rcnb')
@@ -19,5 +22,14 @@ class RCNBTest < Minitest::Test
     assert_equal '流石RC',RCNB.decode('ŅƁȒƇńßrćNƄŕčȐĉņþ')
     assert_equal '流石RC',RCNB.decode('ŇbŔƇÑƀRȻȐĉņþ',encoding='SJIS')
     assert_equal '流石RC',RCNB.decode('ƝßřċŇþƦċȐĉņþ',encoding='GBK')
+  end
+
+  def test_str
+    assert_equal 'ɌcńƁȓČņÞ','rcnb'.rcnb
+    assert_equal 'ȐȼŃƅȓčƞÞƦȻƝƃŖć','Who NB?'.rcnb
+    assert_equal 'rcnb','ɌcńƁȓČņÞ'.rcnb_decode
+    assert_equal 'RCNB!','ȐĉņþƦȻƝƃŔć'.rcnb_decode
+    assert_equal 'rcnb','ɌcńƁȓČņÞ'.rcnb?
+    assert_nil   'not rcnb'.rcnb?
   end
 end

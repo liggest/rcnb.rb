@@ -11,6 +11,7 @@ gem install rcnb
 ```
 
 ### Usage
+**Basic**
 ```ruby
 require 'rcnb'
 
@@ -18,6 +19,22 @@ RCNB.encode('Who NB?')
 # => ȐȼŃƅȓčƞÞƦȻƝƃŖć
 RCNB.decode('ȐĉņþƦȻƝƃŔć')
 # => RCNB!
+```
+
+**String Enhancement**
+
+```ruby
+require 'rcnb/str'
+using RCNB::Str
+ 
+'Who NB?'.rcnb
+# => ȐȼŃƅȓčƞÞƦȻƝƃŖć
+'ȐĉņþƦȻƝƃŔć'.rcnb_decode
+# => RCNB!
+'ȐĉņþƦȻƝƃŔć'.rcnb?
+# => RCNB!
+'not rcnb'.rcnb?
+# => nil
 ```
 
 ### Reference

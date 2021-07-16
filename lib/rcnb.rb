@@ -1,23 +1,28 @@
 
-# = rcnb
+# # rcnb
 # A ruby implementation of RCNB
 # ---
 
 # RCNB模块
 # 
-# == Example
-#   require 'rcnb'
-#   
-#   RCNB.encode('Who NB?')
-#   => ȐȼŃƅȓčƞÞƦȻƝƃŖć
-#   
-#   RCNB.decode('ȐĉņþƦȻƝƃŔć')
-#   => RCNB!
+# ## Example
+# ```ruby
+# require 'rcnb'
+# 
+# RCNB.encode('Who NB?')
+# # => ȐȼŃƅȓčƞÞƦȻƝƃŖć
+# RCNB.decode('ȐĉņþƦȻƝƃŔć')
+# # => RCNB!
+# ```
 module RCNB
+  # @private
   # :stopdoc:
   CR=:rRŔŕŖŗŘřƦȐȑȒȓɌɍ
+  # @private
   CC=:cCĆćĈĉĊċČčƇƈÇȻȼ
+  # @private
   CN=:nNŃńŅņŇňƝƞÑǸǹȠȵ
+  # @private
   CB=:bBƀƁƃƄƅßÞþ
 
   def self.getIndexHash(s)
@@ -26,20 +31,32 @@ module RCNB
   end
 
   private_class_method :getIndexHash
+  # @private
   IR=getIndexHash(CR)
+  # @private
   IC=getIndexHash(CC)
+  # @private
   IN=getIndexHash(CN)
+  # @private
   IB=getIndexHash(CB)
 
+  # @private
   SR=CR.size
+  # @private
   SC=CC.size
+  # @private
   SN=CN.size
+  # @private
   SB=CB.size
 
+  # @private
   SRC=SR*SC
+  # @private
   SNB=SN*SB
+  # @private
   SCNB=SC*SNB
   # :startdoc:
+
   def self.encodeByte(i)
     raise ArgumentError,'rc/nb overflow' if i>0xFF
     if i>0x7F
@@ -107,10 +124,9 @@ module RCNB
   # end
 
   # 将文本编码为RCNB密文
-  # [str] 文本
-  # [encoding] 文本编码
-  # ---
-  # [return] 密文
+  # @param str [String] 文本
+  # @param encoding 文本编码
+  # @return [String] 密文
   def self.encode(str,encoding=nil)
     str=str.encode(encoding) if encoding
     arr=str.unpack('C*')
@@ -124,10 +140,9 @@ module RCNB
   end
 
   # 将RCNB密文解码为文本
-  # [str] 密文
-  # [encoding] 文本编码
-  # ---
-  # [return] 文本
+  # @param str [String] 密文
+  # @param encoding 文本编码
+  # @return [String] 文本
   def self.decode(str,encoding=nil)
     raise ArgumentError,'invalid length' unless (str.size & 1).zero?
     arr=[]
