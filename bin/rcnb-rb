@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'rcnb/cli'
+# p ARGV
+RCNB::CLI.parse(ARGV)
